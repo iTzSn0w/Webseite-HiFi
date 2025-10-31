@@ -1,0 +1,1614 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Hifi Studio - Premium Car Audio Lösungen</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-dark: #1a1a1a;
+            --secondary-dark: #2d2d2d;
+            --accent-blue: #3498db;
+            --accent-gold: #f39c12;
+            --accent-silver: #bdc3c7;
+            --text-light: #ecf0f1;
+            --text-gray: #95a5a6;
+            --success-green: #2ecc71;
+            --error-red: #e74c3c;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 100vh;
+            background: linear-gradient(rgba(26, 26, 26, 0.6), rgba(26, 26, 26, 0.7)), 
+                        url('https://images.unsplash.com/photo-1596428152169-781e0154b5c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, rgba(26, 26, 26, 0.4) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            color: var(--text-gray);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(52, 152, 219, 0.3);
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(52, 152, 219, 0.4);
+        }
+
+        /* Packages Section */
+        .packages {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(180deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .package-card {
+            background: rgba(45, 45, 45, 0.8);
+            border-radius: 15px;
+            padding: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        .package-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .package-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .package-card.featured {
+            border: 2px solid var(--accent-gold);
+            transform: scale(1.05);
+        }
+
+        .package-card.featured::after {
+            content: 'Am beliebtesten';
+            position: absolute;
+            top: 30px;
+            right: -35px;
+            background: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 0.5rem 3.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transform: rotate(45deg);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.3);
+        }
+
+        .package-header {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .package-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .bronze .package-icon { color: #cd7f32; }
+        .silver .package-icon { color: var(--accent-silver); }
+        .gold .package-icon { color: var(--accent-gold); }
+        .damping-basic .package-icon { color: #8e44ad; }
+        .damping-premium .package-icon { color: #9b59b6; }
+        .damping-ultimate .package-icon { color: #8e44ad; }
+
+        .package-name {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .package-price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 1rem;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .package-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .package-features i {
+            color: var(--success-green);
+            font-size: 0.9rem;
+        }
+
+        /* Sound Metrics */
+        .sound-metrics {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .metric {
+            margin-bottom: 1rem;
+        }
+
+        .metric-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .metric-bar {
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .metric-fill {
+            height: 100%;
+            border-radius: 10px;
+            width: 0;
+            transition: width 1.5s ease;
+            background: linear-gradient(90deg, var(--accent-blue), var(--accent-gold));
+        }
+
+        .bronze .klangoptimierung { --target-width: 60%; }
+        .bronze .dynamik { --target-width: 50%; }
+        .bronze .bass { --target-width: 40%; }
+
+        .silver .klangoptimierung { --target-width: 80%; }
+        .silver .dynamik { --target-width: 75%; }
+        .silver .bass { --target-width: 70%; }
+
+        .gold .klangoptimierung { --target-width: 95%; }
+        .gold .dynamik { --target-width: 90%; }
+        .gold .bass { --target-width: 85%; }
+
+        .damping-basic .geraeuschreduktion { --target-width: 50%; }
+        .damping-basic .vibration { --target-width: 45%; }
+        .damping-basic .komfort { --target-width: 40%; }
+
+        .damping-premium .geraeuschreduktion { --target-width: 75%; }
+        .damping-premium .vibration { --target-width: 70%; }
+        .damping-premium .komfort { --target-width: 65%; }
+
+        .damping-ultimate .geraeuschreduktion { --target-width: 95%; }
+        .damping-ultimate .vibration { --target-width: 90%; }
+        .damping-ultimate .komfort { --target-width: 85%; }
+
+        .metric-fill.animate {
+            width: var(--target-width);
+        }
+
+        .package-button {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .bronze .package-button {
+            background: linear-gradient(135deg, var(--accent-silver), #95a5a6);
+            color: var(--primary-dark);
+        }
+
+        .silver .package-button {
+            background: linear-gradient(135deg, #e67e22, var(--accent-gold));
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(230, 126, 34, 0.3);
+        }
+
+        .gold .package-button {
+            background: linear-gradient(135deg, var(--accent-silver), #95a5a6);
+            color: var(--primary-dark);
+        }
+
+        .damping-basic .package-button,
+        .damping-premium .package-button,
+        .damping-ultimate .package-button {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6);
+            color: white;
+        }
+
+        .package-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Damping Section */
+        .damping-section {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Custom Consultation Section */
+        .consultation {
+            padding: 8rem 0 5rem;
+            background: var(--primary-dark);
+        }
+
+        .consultation-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .consultation h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .consultation p {
+            font-size: 1.1rem;
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0 5rem;
+            background: linear-gradient(180deg, var(--secondary-dark) 0%, var(--primary-dark) 100%);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .about-text p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .about-feature i {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 8rem 0 5rem;
+            background: var(--primary-dark);
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-gray);
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--accent-blue);
+            width: 30px;
+        }
+
+        .contact-form {
+            background: rgba(45, 45, 45, 0.8);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        .required-indicator {
+            color: var(--error-red);
+            margin-left: 0.25rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(26, 26, 26, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 10px rgba(52, 152, 219, 0.2);
+        }
+
+        .form-group input.error,
+        .form-group textarea.error {
+            border-color: var(--error-red);
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.2);
+        }
+
+        .error-message {
+            color: var(--error-red);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+            display: none;
+        }
+
+        .form-group input.error + .error-message,
+        .form-group textarea.error + .error-message {
+            display: block;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-button {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+
+        .submit-button:disabled {
+            background: linear-gradient(135deg, #7f8c8d, #95a5a6);
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-dark);
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text-gray);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-blue);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .packages-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 1050px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .packages-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 700px;
+            }
+            
+            .package-card.featured {
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--secondary-dark);
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            color: var(--text-gray);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--accent-blue);
+        }
+
+        .modal h3 {
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .modal p {
+            color: var(--text-gray);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Success Modal */
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-modal.active {
+            display: flex;
+        }
+
+        .success-content {
+            background: var(--secondary-dark);
+            padding: 2.5rem;
+            border-radius: 15px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 4rem;
+            color: var(--success-green);
+            margin-bottom: 1.5rem;
+        }
+
+        .success-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .success-message {
+            color: var(--text-gray);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .success-button {
+            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-gold));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .success-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-car"></i>
+                Auto Hifi Studio
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#packages">Pakete</a></li>
+                <li><a href="#damping">Dämmung</a></li>
+                <li><a href="#consultation">Beratung</a></li>
+                <li><a href="#about">Über uns</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Erlebe reinen Klang</h1>
+            <p>Professionelle Car Audio Lösungen für höchste Ansprüche</p>
+            <a href="#packages" class="cta-button" onclick="scrollToPackages(event)">Entdecke unsere Pakete</a>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section id="packages" class="packages">
+        <div class="container">
+            <h2 class="section-title fade-in">Unsere Sound-Pakete</h2>
+            <p class="section-subtitle fade-in">Wähle das perfekte Paket für deine Anforderungen</p>
+            
+            <div class="packages-grid">
+                <!-- Bronze Package -->
+                <div class="package-card bronze fade-in">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-music"></i>
+                        </div>
+                        <h3 class="package-name">Bronze Sound</h3>
+                        <div class="package-price">ab 799€</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Hochwertige 2-Wege-Komponentensystem</li>
+                        <li><i class="fas fa-check"></i> 4-Kanal Verstärker (200W)</li>
+                        <li><i class="fas fa-check"></i> Professionelle Installation</li>
+                        <li><i class="fas fa-check"></i> 2 Jahre Garantie</li>
+                    </ul>
+                    <div class="sound-metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Klangoptimierung</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill klangoptimierung"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Dynamik</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill dynamik"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Bass</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill bass"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="package-button" onclick="showPackageDetails('bronze')">Angebot anfordern</button>
+                </div>
+
+                <!-- Silver Package (Featured) -->
+                <div class="package-card silver featured fade-in">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3 class="package-name">Silver Premium</h3>
+                        <div class="package-price">ab 1.599€</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Premium 3-Wege-Komponentensystem</li>
+                        <li><i class="fas fa-check"></i> 4-Kanal Verstärker (400W)</li>
+                        <li><i class="fas fa-check"></i> Subwoofer 30cm (300W)</li>
+                        <li><i class="fas fa-check"></i> DSP-Soundprozessor</li>
+                        <li><i class="fas fa-check"></i> Schalldämmung Türen</li>
+                        <li><i class="fas fa-check"></i> 3 Jahre Garantie</li>
+                    </ul>
+                    <div class="sound-metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Klangoptimierung</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill klangoptimierung"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Dynamik</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill dynamik"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Bass</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill bass"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="package-button" onclick="showPackageDetails('silver')">Jetzt beraten lassen</button>
+                </div>
+
+                <!-- Gold Package -->
+                <div class="package-card gold fade-in">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 class="package-name">Gold Elite</h3>
+                        <div class="package-price">ab 2.999€</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> High-End 3-Wege-Komponentensystem</li>
+                        <li><i class="fas fa-check"></i> Mono-Verstärker (800W)</li>
+                        <li><i class="fas fa-check"></i> Premium Subwoofer 38cm</li>
+                        <li><i class="fas fa-check"></i> High-End DSP mit App-Steuerung</li>
+                        <li><i class="fas fa-check"></i> Komplette Schalldämmung</li>
+                        <li><i class="fas fa-check"></i> Kabel-Upgrade OFC</li>
+                        <li><i class="fas fa-check"></i> 5 Jahre Garantie</li>
+                    </ul>
+                    <div class="sound-metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Klangoptimierung</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill klangoptimierung"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Dynamik</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill dynamik"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Bass</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill bass"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="package-button" onclick="showPackageDetails('gold')">Exklusivangebot</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Damping Section -->
+    <section id="damping" class="damping-section">
+        <div class="container">
+            <h2 class="section-title fade-in">Fahrzeugdämmung</h2>
+            <p class="section-subtitle fade-in">Reduziere Geräusche und verbessere den Klang deines Audiosystems</p>
+            
+            <div class="packages-grid">
+                <!-- Basic Damping Package -->
+                <div class="package-card damping-basic fade-in">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-volume-down"></i>
+                        </div>
+                        <h3 class="package-name">Basic Dämmung</h3>
+                        <div class="package-price">ab 399€</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Türen (4 Stück)</li>
+                        <li><i class="fas fa-check"></i> Hochwertiges Dämmmaterial</li>
+                        <li><i class="fas fa-check"></i> Reduziert Vibrationen</li>
+                        <li><i class="fas fa-check"></i> 2 Jahre Garantie</li>
+                    </ul>
+                    <div class="sound-metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Geräuschreduktion</span>
+                                <span>50%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill geraeuschreduktion"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Vibrationsdämpfung</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill vibration"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Fahrkomfort</span>
+                                <span>40%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill komfort"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="package-button" onclick="showPackageDetails('damping-basic')">Angebot anfordern</button>
+                </div>
+
+                <!-- Premium Damping Package -->
+                <div class="package-card damping-premium fade-in">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-volume-mute"></i>
+                        </div>
+                        <h3 class="package-name">Premium Dämmung</h3>
+                        <div class="package-price">ab 799€</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Türen, Boden und Heck</li>
+                        <li><i class="fas fa-check"></i> Mehrschichtiges Dämmmaterial</li>
+                        <li><i class="fas fa-check"></i> Spezialmaterial für Motorraum</li>
+                        <li><i class="fas fa-check"></i> Deutliche Verbesserung der Akustik</li>
+                        <li><i class="fas fa-check"></i> 3 Jahre Garantie</li>
+                    </ul>
+                    <div class="sound-metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Geräuschreduktion</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill geraeuschreduktion"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Vibrationsdämpfung</span>
+                                <span>70%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill vibration"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Fahrkomfort</span>
+                                <span>65%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill komfort"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="package-button" onclick="showPackageDetails('damping-premium')">Angebot anfordern</button>
+                </div>
+
+                <!-- Ultimate Damping Package -->
+                <div class="package-card damping-ultimate fade-in">
+                    <div class="package-header">
+                        <div class="package-icon">
+                            <i class="fas fa-volume-off"></i>
+                        </div>
+                        <h3 class="package-name">Ultimate Dämmung</h3>
+                        <div class="package-price">ab 1.299€</div>
+                    </div>
+                    <ul class="package-features">
+                        <li><i class="fas fa-check"></i> Komplette Fahrzeugdämmung</li>
+                        <li><i class="fas fa-check"></i> Hochwertigste Materialien</li>
+                        <li><i class="fas fa-check"></i> Dach, Boden, Türen, Heck, Motorraum</li>
+                        <li><i class="fas fa-check"></i> Spezial-Absorber für tiefe Frequenzen</li>
+                        <li><i class="fas fa-check"></i> Maximale Geräuschisolierung</li>
+                        <li><i class="fas fa-check"></i> 5 Jahre Garantie</li>
+                    </ul>
+                    <div class="sound-metrics">
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Geräuschreduktion</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill geraeuschreduktion"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Vibrationsdämpfung</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill vibration"></div>
+                            </div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-label">
+                                <span>Fahrkomfort</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="metric-bar">
+                                <div class="metric-fill komfort"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="package-button" onclick="showPackageDetails('damping-ultimate')">Angebot anfordern</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Consultation Section -->
+    <section id="consultation" class="consultation">
+        <div class="container">
+            <div class="consultation-content fade-in">
+                <h2>Individuelle Beratung</h2>
+                <p>Jedes Auto ist einzigartig - genau wie deine musikalischen Vorlieben. Unsere Experten erstellen dir ein maßgeschneidertes Soundkonzept, das perfekt auf dein Fahrzeug und deine Wünsche abgestimmt ist.</p>
+                <p>Wir beraten dich persönlich und finden die optimale Lösung für dein Budget und deine Anforderungen.</p>
+                <button class="cta-button" onclick="scrollToContact()">Kostenlose Beratung anfordern</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Warum Auto Hifi Studio?</h2>
+                    <p>Mit über 15 Jahren Erfahrung in der Car Audio Branche sind wir dein Experte für hochwertige Soundlösungen. Wir verwenden nur Produkte renommierter Hersteller und garantieren professionelle Installation.</p>
+                    <p>Unser Team aus zertifizierten Technikern sorgt dafür, dass jede Installation perfekt ausgeführt wird und du maximales Sounderlebnis erhältst.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-certificate"></i>
+                            <span>Zertifizierte Techniker</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Bis zu 5 Jahre Garantie</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-tools"></i>
+                            <span>Professionelle Werkstatt</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-headphones"></i>
+                            <span>Testhörstudio vor Ort</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80" alt="Unsere Werkstatt">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info fade-in">
+                    <h2>Kontaktiere uns</h2>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Industriestraße 15<br>12345 Berlin</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+49 30 12345678</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@auto-hifi-studio.de</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Mo-Fr: 9:00-18:00<br>Sa: 9:00-14:00</span>
+                    </div>
+                </div>
+                <form class="contact-form fade-in" id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-group">
+                        <label for="name">Name<span class="required-indicator">*</span></label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message">Bitte gib deinen Namen an</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">E-Mail<span class="required-indicator">*</span></label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message">Bitte gib eine gültige E-Mail-Adresse an</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon<span class="required-indicator">*</span></label>
+                        <input type="tel" id="phone" name="phone" required>
+                        <span class="error-message">Bitte gib deine Telefonnummer an</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Nachricht</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit" class="submit-button" id="submitButton" disabled>Nachricht senden</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <a href="#privacy">Datenschutz</a>
+                    <a href="#imprint">Impressum</a>
+                    <a href="#terms">AGB</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                © 2024 Auto Hifi Studio. Alle Rechte vorbehalten.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="packageModal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 id="modalTitle">Paket Details</h3>
+            <p id="modalText">Vielen Dank für dein Interesse! Wir melden uns schnellstmöglich bei dir.</p>
+            <button class="cta-button" onclick="scrollToContact()">Jetzt Kontakt aufnehmen</button>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <i class="fas fa-check-circle success-icon"></i>
+            <h3 class="success-title">Nachricht erfolgreich gesendet!</h3>
+            <p class="success-message">Vielen Dank für deine Nachricht. Wir haben deine Anfrage erhalten und werden uns so schnell wie möglich bei dir melden.</p>
+            <button class="success-button" onclick="closeSuccessModal()">Schließen</button>
+        </div>
+    </div>
+
+    <script>
+        // Special scroll function for packages button
+        function scrollToPackages(event) {
+            event.preventDefault();
+            const packagesSection = document.getElementById('packages');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            
+            // Calculate the perfect position to center the packages
+            const sectionHeight = packagesSection.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const targetPosition = packagesSection.offsetTop - (viewportHeight - sectionHeight) / 2 + headerHeight;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+            
+            // Trigger animation for metrics after scrolling
+            setTimeout(() => {
+                animateMetrics(packagesSection);
+            }, 800);
+        }
+
+        // Smooth scrolling for other navigation links
+        document.querySelectorAll('a[href^="#"]:not([onclick])').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Calculate offset to account for fixed header
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.offsetTop - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Trigger animation for metrics when clicking navigation
+                    if (target.id === 'packages' || target.id === 'damping') {
+                        setTimeout(() => {
+                            animateMetrics(target);
+                        }, 800);
+                    }
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                    // Trigger animation for metrics when section is visible
+                    if (entry.target.classList.contains('packages') || 
+                        entry.target.classList.contains('damping-section')) {
+                        animateMetrics(entry.target);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Animate metrics function
+        function animateMetrics(section) {
+            const metrics = section.querySelectorAll('.metric-fill');
+            metrics.forEach((metric, index) => {
+                // Remove animation class first to reset
+                metric.classList.remove('animate');
+                
+                // Add animation class with delay for each metric
+                setTimeout(() => {
+                    metric.classList.add('animate');
+                }, index * 200);
+            });
+        }
+
+        // Package modal functions
+        function showPackageDetails(packageType) {
+            const modal = document.getElementById('packageModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalText = document.getElementById('modalText');
+            
+            const packageDetails = {
+                bronze: {
+                    title: 'Bronze Sound Paket',
+                    text: 'Das perfekte Einstiegspaket für klaren und kräftigen Sound. Ideal für alle, die ihre Standardanlage aufrüsten möchten.'
+                },
+                silver: {
+                    title: 'Silver Premium Paket',
+                    text: 'Unser meistgewähltes Paket! Bietet das perfekte Gleichgewicht zwischen Preis und Leistung für ein beeindruckendes Klangerlebnis.'
+                },
+                gold: {
+                    title: 'Gold Elite Paket',
+                    text: 'Für anspruchsvolle Musikliebhaber. Erlebe Klang in Studioqualität - so wie der Künstler es sich vorgestellt hat.'
+                },
+                'damping-basic': {
+                    title: 'Basic Dämmung Paket',
+                    text: 'Reduziere Vibrationen und Straßenlärm effektiv. Perfekt für die ersten Schritte zu einem ruhigeren Fahrerlebnis.'
+                },
+                'damping-premium': {
+                    title: 'Premium Dämmung Paket',
+                    text: 'Deutliche Verbesserung der Akustik und des Fahrkomforts. Ideal für Musikliebhaber mit bestehenden Audiosystemen.'
+                },
+                'damping-ultimate': {
+                    title: 'Ultimate Dämmung Paket',
+                    text: 'Maximale Geräuschisolierung für ein Konzert-Erlebnis in deinem Auto. Genieße Musik ohne störende Außengeräusche.'
+                }
+            };
+            
+            modalTitle.textContent = packageDetails[packageType].title;
+            modalText.textContent = packageDetails[packageType].text;
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('packageModal').classList.remove('active');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('packageModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Success modal functions
+        function showSuccessModal() {
+            document.getElementById('successModal').classList.add('active');
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('successModal').classList.remove('active');
+        }
+
+        // Close success modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSuccessModal();
+            }
+        });
+
+        // Scroll to contact
+        function scrollToContact() {
+            closeModal();
+            const contact = document.getElementById('contact');
+            const headerHeight = document.querySelector('header').offsetHeight;
+            const targetPosition = contact.offsetTop - headerHeight - 20;
+            
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+        }
+
+        // Form validation
+        const form = document.getElementById('contactForm');
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const submitButton = document.getElementById('submitButton');
+
+        // Function to validate form
+        function validateForm() {
+            let isValid = true;
+            
+            // Validate name
+            if (nameInput.value.trim() === '') {
+                nameInput.classList.add('error');
+                isValid = false;
+            } else {
+                nameInput.classList.remove('error');
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value.trim())) {
+                emailInput.classList.add('error');
+                isValid = false;
+            } else {
+                emailInput.classList.remove('error');
+            }
+            
+            // Validate phone
+            if (phoneInput.value.trim() === '') {
+                phoneInput.classList.add('error');
+                isValid = false;
+            } else {
+                phoneInput.classList.remove('error');
+            }
+            
+            // Enable/disable submit button
+            submitButton.disabled = !isValid;
+            
+            return isValid;
+        }
+
+        // Add event listeners for input validation
+        nameInput.addEventListener('blur', validateForm);
+        emailInput.addEventListener('blur', validateForm);
+        phoneInput.addEventListener('blur', validateForm);
+        
+        nameInput.addEventListener('input', validateForm);
+        emailInput.addEventListener('input', validateForm);
+        phoneInput.addEventListener('input', validateForm);
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Validate form
+            if (!validateForm()) {
+                return;
+            }
+            
+            // Get form data
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData);
+            
+            // Here you would normally send the data to a server
+            console.log('Form submitted:', data);
+            
+            // Show success modal
+            showSuccessModal();
+            
+            // Reset form
+            form.reset();
+            submitButton.disabled = true;
+            
+            // Remove error classes
+            nameInput.classList.remove('error');
+            emailInput.classList.remove('error');
+            phoneInput.classList.remove('error');
+        }
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        });
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Observe sections for animations
+            observer.observe(document.getElementById('packages'));
+            observer.observe(document.getElementById('damping'));
+        });
+    </script>
+</body>
+</html>
